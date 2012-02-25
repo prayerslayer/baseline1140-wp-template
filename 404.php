@@ -14,9 +14,9 @@ get_header(); ?>
 			<div class="row">
 				<div class="fourcol"></div>
 				<div class="sixcol post last">
-					<h2>Le érreur</h2>
+					<h2>DAFUQ!?</h2>
 					<div class="postcontent">
-						<p>I'm sorry to disappoint you, but there is no such thing. Look elsewhere.</p>
+						<p>Gehen sie weiter, es gibt nichts zu sehen!</p>
 					</div>
 				</div>
 			</div>
