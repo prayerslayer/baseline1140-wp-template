@@ -1,0 +1,109 @@
+body {
+	font-family:"PT Sans", sans-serif;
+	font-weight:400;
+	background-color:#4d4d4d;
+	line-height:1.5em;
+	color:white;
+}
+
+/* video stuff */
+object, iframe {
+	width:90%;
+	height:auto;
+	min-height:320px;
+	margin:1.5em;
+}
+
+img {
+	width:90%;
+	height:auto;
+	margin:1.5em;
+}
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol{
+	/*border: 1px solid red;*/
+}
+
+a {
+	color:white;
+}
+
+a:hover {
+	color:steelblue;
+}
+
+.highlight {
+	color:steelblue;
+}
+
+.wraphead {
+	margin-top:5%;
+}
+
+.wrapcontent {
+	padding-bottom:5%;
+}
+
+.headline h1 {
+	cursor:pointer;
+}
+
+.menu {
+	margin-bottom:2.5%;
+}
+
+.menu > p + p  {
+	text-indent:0em;
+}
+
+#leftmenu, #specialbox {
+	text-align:right;
+}
+
+.subheading {
+	font-style:italic;
+	margin-bottom:2.5%;
+}
+
+.post {
+	margin-top:2.5%;
+	margin-bottom:2.5%;
+}
+
+.metadata {
+	text-align:right; !important;
+}
+
+.metadata > div {
+	text-align:inherit;
+}
+
+.content {
+	margin-left:1.5em;
+}
+
+.older {
+	text-indent:right;
+}
+
+#nav-single {
+	margin-top:1.5em;
+}
+
+@media handheld, only screen and (max-width: 767px) {
+	#leftmenu {
+		text-align:left;
+	}
+	.metadata > div {
+		text-align:left;
+	}
+	
+	.post {
+		border-top: 1px solid white;
+	}
+	
+	.date {
+		float:left;
+		margin-right:3em;
+	}
+}
