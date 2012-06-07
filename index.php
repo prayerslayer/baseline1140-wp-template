@@ -20,7 +20,7 @@ get_header(); ?>
 	
 		<?php while (have_posts()) : the_post(); ?>
 		
-			<div class="container post">
+			<section class="container post">
 				<div class="row">
 					<div class="fourcol metadata">
 						<div class="date">
@@ -32,22 +32,22 @@ get_header(); ?>
 							<div class="permalink"><p><a href="<?php the_permalink();?>">permalink</a></p></div>
 						</div>
 					</div>
-					<div class="sixcol postcontent last">
+					<article class="sixcol postcontent last">
 						<h2><?php the_title();?></h2>
 						<div class="content">
 							<?php the_content();?>
 						</div>
-					</div>
+					</article>
 				</div>
-			</div>
+			</section>
 		<?php endwhile; ?>
 		
-		<div class="container pagination">
+		<nav class="container pagination">
 			<div class="row">
 				<div class="fourcol older"><?php next_posts_link("older");?></div>
 				<div class="threecol newer"><?php previous_posts_link("newer");?></div>
 			</div>
-		</div>
+		</nav>
 	<?php else: ?>
 		<h2>No posts</h2>
 		<p>Please come back again later!</p>

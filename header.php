@@ -46,12 +46,14 @@
 
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link href='http://fonts.googleapis.com/css?family=PT+Sans:400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Serif:400italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<?php bloginfo("template_url")?>/css/1140.css" />
 <link rel="stylesheet" href="<?php bloginfo("template_url")?>/css/ie.css" />
 <link rel="stylesheet" href="<?php bloginfo("template_url")?>/css/baseline.compress.css" />
 <link rel="stylesheet" href="<?php bloginfo("template_url")?>/css/style.css" />
-<link rel="icon" type="image/png" href="<?php bloginfo("template_url")?>/images/favicon.png" />
+<link rel="icon" type="image/png" href="<?php bloginfo("template_url")?>/images/logo.png" />
+<link rel="shortcut icon" href="<?php bloginfo("template_url")?>/images/favicon.ico" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <script type="text/javascript" src="<?php bloginfo("template_url")?>/js/css3-mediaqueries.js"></script>
 <script type="text/javascript" src="<?php bloginfo("template_url")?>/js/jquery.min.js"></script>
@@ -86,20 +88,19 @@ $(document).ready(function() {
 
 <body <?php body_class(); ?>>
 
-	<div class="gray wraphead">
+	<header class="gray wraphead">
 			
 			<!-- headline -->
-			<div class="container headline">
+			<section class="container headline">
 				<div class="row">
 					<div class="fourcol"></div>
 					<div class="fourcol last"><h1><?php bloginfo("name"); ?></h1></div>
 				</div>
-			</div>
-			
+			</section>
 			<!-- menu -->
-			<div class="container">
+			<section class="container">
 				<div class="row">
-					<div class="fourcol menu" id="leftmenu">
+					<nav class="fourcol menu" id="leftmenu">
 						
 						<?php
 							
@@ -136,8 +137,8 @@ $(document).ready(function() {
 								}
 							}
 						?>
-					</div>
-					<div class="fourcol menu last" id="rightmenu">
+					</nav>
+					<nav class="fourcol menu last" id="rightmenu">
 						<?php
 							if (is_page()) {
 								//ist kein blog
@@ -150,19 +151,23 @@ $(document).ready(function() {
 									//kinder von parent holen
 									$children = get_pages(array("child_of"=>$parent));
 									//children anzeigen, highlight wenn selbe seite
+									//maximale ebene: 2
 									foreach ($children as $child) {
-										if ($post->ID==$child->ID)
-											echo "<p><a class='highlight' href='".get_page_link($fullcurpage->ID)."'>".$child->post_title."</a></p>";
-										else
-											echo "<p><a href='".get_page_link($child->ID)."'>".$child->post_title."</a></p>";
+										if (count(get_ancestors($child->ID, "page"))<2) {
+											if ($post->ID==$child->ID)
+												echo "<p><a class='highlight' href='".get_page_link($fullcurpage->ID)."'>".$child->post_title."</a></p>";
+											else
+												echo "<p><a href='".get_page_link($child->ID)."'>".$child->post_title."</a></p>";
+										}
 									}
 								}
 								//parent gleich root: kinder laden
 								else {
 									$children = get_pages(array("child_of"=>$fullcurpage->ID));
-									//children anzeigen
+									//children anzeigen, aber nur direkte
 									foreach ($children as $child) {
-										echo "<p><a href='".get_page_link($child->ID)."'>".$child->post_title."</a></p>";
+										if (count(get_ancestors($child->ID, "page"))<2)
+											echo "<p><a href='".get_page_link($child->ID)."'>".$child->post_title."</a></p>";
 									}
 								}
 							}	
@@ -180,15 +185,18 @@ $(document).ready(function() {
 								}
 							}
 						?>
-					</div>
+					</nav>
+				</div>
+			</section>
+			<!-- reiner platzhalter für abstand -->
+			<div class="container subheading">
+				<div class="row">
 				</div>
 			</div>
-			
-			<!-- potential headline -->
+			<!-- potential headline 
 			<div class="container subheading">
 				<div class="row">
 					<div class="fourcol" id="specialbox">
-						<!-- put special lists here -->
 					</div>
 					<div class="sixcol last"><h2>
 						<?php
@@ -201,5 +209,5 @@ $(document).ready(function() {
 						?>
 					</h2></div>
 				</div>
-			</div>
-		</div>
+			</div>-->
+	</header>

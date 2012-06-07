@@ -5,7 +5,7 @@ Description: A mashup of baseline.css, 1140grid and my own style.
 Author: nikolaus piccolotto
 Author URI: http://nikolaus-piccolotto.info
 Version: 0.5
-Tags: black, blue, white, two-columns, fixed-width
+Tags: black, red, white, two-columns, fixed-width
 
 License:
 License URI:
@@ -18,14 +18,43 @@ General comments (optional).
 body {
 	font-family:"PT Sans", sans-serif;
 	font-weight:400;
-	background-color:#4d4d4d;
+	background-color:#2d2d2d;
 	line-height:1.5em;
 	color:white;
 }
 
+em {
+	font-family: "PT Sans", sans-serif;
+	font-style:italic;
+}
+
+blockquote {
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 1.5em;
+	margin-top: 1.5em;
+	border-left: 1px dotted #999999;
+	font-size: 1em;
+	line-height:1.5em;
+}
+
+p + p {
+	text-indent: 0em;
+}
+
+blockquote > p + p {
+	padding-top: 1.5em;
+}
+
+code {
+	background-color:white;
+	color:black;
+	font-weight:bold;
+}
+
 /* video stuff */
 object, iframe {
-	width:95%;
+	width:90%;
 	height:auto;
 	min-height:320px;
 }
@@ -42,8 +71,16 @@ img {
 	height:auto;
 }
 
-p + img {
+p + img, p + ul, p + ol {
 	margin:1.5em;
+}
+
+.flickr-gallery img, .flickr-thumb img {
+	width:100%;
+}
+
+.flickr-thumb {
+	border:none;
 }
 
 /* this was for testing */
@@ -59,7 +96,7 @@ a {
 }
 
 a:hover {
-	color:red;
+	color:#999999;
 }
 
 .wraphead a {
@@ -67,7 +104,7 @@ a:hover {
 }
 
 .wraphead a:hover {
-	color:red;
+	color:#999999;
 }
 
 /* highlight color */
@@ -84,6 +121,7 @@ a:hover {
 
 .wraphead {
 	padding-top:5%;
+	height:150%;
 }
 
 .gray {
@@ -93,6 +131,8 @@ a:hover {
 .headline h1 {
 	cursor:pointer;
 	color:black;
+	font-style: italic;
+	font-family:"PT Serif", serif;
 }
 
 /* menu */
@@ -122,6 +162,8 @@ a:hover {
 
 .wrapcontent {
 	padding-bottom:5%;
+	background-color: #2d2d2d;
+	min-height:100%;
 }
 
 .post {
@@ -130,6 +172,11 @@ a:hover {
 
 .postcontent {
 	padding-bottom:2.5%;
+	min-height: 100px;
+}
+
+.postcontent > h2 {
+	text-transform: lowercase;
 }
 
 .metadata {
@@ -140,7 +187,7 @@ a:hover {
 	text-align:inherit;
 }
 
-.content > p + p {
+.content p + p {
 	padding-top:1.5em;
 }
 
@@ -158,13 +205,12 @@ a:hover {
 	#leftmenu {
 		text-align:left;
 	}
-	.metadata > div {
-		text-align:left;
+	.metadata {
+		display:none;
 		
 	}
 	
 	.post {
-		border-bottom: 1px solid white;
 	}
 	
 }

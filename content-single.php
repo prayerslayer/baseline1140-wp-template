@@ -7,7 +7,8 @@
  * @since Twenty Eleven 1.0
  */
 ?>
-<div class="container post" id="id-<?php the_ID();?>">
+	
+	<section class="container post wrapcontent" id="id-<?php the_ID();?>">
 		<div class="row">
 			<div class="fourcol metadata">
 				<div class="date">
@@ -19,20 +20,19 @@
 					<div class="permalink"><p><a href="<?php the_permalink();?>">permalink</a></p></div>
 				</div>
 				<nav id="nav-single">
-					<div class="nav-previous"><?php previous_post_link( '%link', __( '<p><span class="meta-nav">&larr;</span> previous</p>', 'twentyeleven' ) ); ?></div>
-					<div class="nav-next"><?php next_post_link( '%link', __( '<p>next <span class="meta-nav">&rarr;</span></p>', 'twentyeleven' ) ); ?></div>
+					<div class="nav-previous"><?php previous_post_link( '%link', __( '<p>previous</p>', 'twentyeleven' ) ); ?></div>
+					<div class="nav-next"><?php next_post_link( '%link', __( '<p>next</p>', 'twentyeleven' ) ); ?></div>
 				</nav><!-- #nav-single -->
 			</div>
-			<div class="sixcol postcontent last">
+			<article class="sixcol postcontent last">
 				<h2><?php the_title();?></h2>
 				<div class="content">
-					
 					<?php if (!is_search())
 							echo the_content();
 						  else
 						    echo the_excerpt();?>
 				</div>
 				
-			</div>
+			</article>
 		</div>
-	</div>
+	</section>

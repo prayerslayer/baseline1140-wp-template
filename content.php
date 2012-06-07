@@ -8,7 +8,7 @@
  */
 ?>
 
-	<div class="container post" id="id-<?php the_ID();?>">
+	<section class="container post" id="id-<?php the_ID();?>">
 		<div class="row">
 			<div class="fourcol metadata">
 				<div class="date">
@@ -20,15 +20,14 @@
 					<div class="permalink"><p><a href="<?php the_permalink();?>">permalink</a></p></div>
 				</div>
 			</div>
-			<div class="sixcol postcontent last">
+			<article class="sixcol postcontent last">
 				<h2><?php the_title();?></h2>
 				<div class="content">
-					
 					<?php if (!is_search())
 							echo the_content();
 						  else
 						    echo the_excerpt();?>
 				</div>
-			</div>
+			</article>
 		</div>
-	</div>
+	</section>
