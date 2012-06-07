@@ -69,9 +69,10 @@ p + object, p + iframe {
 img {
 	width:90%;
 	height:auto;
+	margin:1.5em;
 }
 
-p + img, p + ul, p + ol {
+p + ul, p + ol {
 	margin:1.5em;
 }
 
@@ -189,6 +190,7 @@ a:hover {
 
 .content p + p {
 	padding-top:1.5em;
+	text-indent: 0em;
 }
 
 .older {
