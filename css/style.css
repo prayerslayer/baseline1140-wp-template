@@ -55,13 +55,9 @@ code {
 /* video stuff */
 object, iframe {
 	width:90%;
+	margin: 1.5em;
 	height:auto;
 	min-height:320px;
-}
-
-p + object, p + iframe {
-	margin:1.5em;
-	width:90%;
 }
 
 /* image stuff */
